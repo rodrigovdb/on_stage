@@ -17,14 +17,15 @@ h4 = @setlist
 .card
   .card-content
     .card-title Músicas
-
     table.bordered
-      tbody
-        - @setlist.songs_sorted.each do |song|
-          tr
-            td
-              = link_to play_band_setlists_path(@band, @setlist, song), class: 'collection-item' do
-                i.material-icons.tooltipped data-tooltip="Play, iniciar por esta música"
-                  | play_circle_outline
-            td = song
-            td = song.beauty_duration
+      tbody#sortable_list
+        form#setlist_songs action="" onsubmit=("return false;")
+          - @setlist.songs_sorted.each do |song|
+            tr
+              td
+                input.sort_items(type='hidden' name='sort_order[]' id="sort_#{song.id}" value="#{song.id}")
+                = link_to play_band_setlists_path(@band, @setlist, song), class: 'collection-item' do
+                  i.material-icons.tooltipped data-tooltip="Play, iniciar por esta música"
+                    | play_circle_outline
+              td = song
+              td = song.beauty_duration

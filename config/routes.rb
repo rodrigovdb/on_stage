@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       collection do
         get   '/:id/play/:song_id', to: 'setlists#play', as: :play
         post  '/:id/copiar',        to: 'setlists#copy', as: :clone
+        post  '/:id/ordenar',       to: 'setlists#sort', as: :sort
       end
     end
   end

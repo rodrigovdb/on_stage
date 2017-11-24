@@ -15,5 +15,6 @@
 //= require jquery_ujs
 //= require materialize
 //= require cocoon
+//= require sortable-rails
 //= require_tree .
 //= require turbolinks

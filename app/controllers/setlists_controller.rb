@@ -77,6 +77,13 @@ class SetlistsController < ApplicationController
     end
   end
 
+  def sort
+    binding.pry
+    @band         = Band.find params[:band_id]
+    base_setlist  = Setlist.find params[:id]
+    @setlist      = Setlist.new band: @band
+  end
+
   private
 
   def copy_setlist(base_setlist)
